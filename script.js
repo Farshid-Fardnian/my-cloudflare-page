@@ -1,3 +1,5 @@
+console.log("script.js loaded");
+
 document.getElementById("btn").addEventListener("click", () => {
   alert("دکمه کلیک شد!");
 });
@@ -15,5 +17,6 @@ fetch("/api/users", {
   headers: { "Content-Type": "application/json" },
   body: JSON.stringify({ name: "فرشید" })
 });
+
 
 
