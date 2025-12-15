@@ -31,7 +31,7 @@ document.getElementById("sendOtp").addEventListener("click", () => {
 
 
 
-document.getElementById("verifyBtn").addEventListener("click", () => {
+document.getElementById("verifyOtp").addEventListener("click", () => {
        const mobile = document.getElementById("mobile").value;
     const otp = document.getElementById("otp").value;
 
@@ -50,5 +50,6 @@ document.getElementById("verifyBtn").addEventListener("click", () => {
 });
 
  
+
 
 
