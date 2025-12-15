@@ -1,5 +1,5 @@
-export async function onRequestPost(context) {
-  const { env } = context;
+export async function onRequestPost() {
+ 
 
   try {
     // موبایل دستی
