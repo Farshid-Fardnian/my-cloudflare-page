@@ -126,6 +126,7 @@ function startCountdown(seconds) {
     otpSent = true;
 
     document.getElementById("otpSection").style.display = "block";
+    document.getElementById("verifyOtpBtn").style.display = "";
     document.getElementById("otpCode").focus();
 
     startCountdown(120);
@@ -200,6 +201,7 @@ document.getElementById("verifyOtpBtn")?.addEventListener("click", async ()=> {
 /* ======================
    Events
 ====================== */
+
 
 
 
