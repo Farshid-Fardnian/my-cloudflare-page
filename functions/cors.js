@@ -2,7 +2,7 @@ export function corsHeaders(request) {
   const origin = request.headers.get("Origin");
 
   const allowedOrigins = [
-    "http://localhost:5500",
+    "http://localhost:49921",
     "http://127.0.0.1:5500",
     "https://farshid5602.ir"
   ];
