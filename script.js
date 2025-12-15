@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-document.getElementById("sendBtn").addEventListener("click", () => {
+document.getElementById("sendOtp").addEventListener("click", () => {
   alert("دکمه کلیک شد!");
        const mobile = document.getElementById("mobile").value;
 
@@ -50,4 +50,5 @@ document.getElementById("verifyBtn").addEventListener("click", () => {
 });
 
  
+
 
