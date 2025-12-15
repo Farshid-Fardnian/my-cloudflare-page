@@ -1,8 +1,8 @@
-export async function onRequestPost() {
- 
-
+export async function onRequestGet(context) {
   try {
-    // موبایل دستی
+    const env = context.env;
+
+    // موبایل ثابت (فعلاً)
     const mobile = "09171835602";
 
     // تولید OTP
@@ -20,13 +20,13 @@ export async function onRequestPost() {
     };
 
     const response = await fetch(
-      'https://sms.parsgreen.ir/Apiv2/Message/SendSms',
+      "https://sms.parsgreen.ir/Apiv2/Message/SendSms",
       {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-          'Authorization': 'basic apikey:' + env.ParsGreen_APIKey
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+          "Authorization": "basic apikey:" + env.ParsGreen_APIKey
         },
         body: JSON.stringify(payload)
       }
@@ -34,23 +34,27 @@ export async function onRequestPost() {
 
     const result = await response.json();
 
-    // ✅ نمایش نتیجه در کنسول Cloudflare
     console.log("ParsGreen SMS Result:", result);
 
-    return new Response(JSON.stringify({
-      success: true,
-      message: "پیامک ارسال شد",
-      smsResult: result
-    }), {
-      headers: { 'Content-Type': 'application/json' }
-    });
+    return new Response(
+      JSON.stringify({
+        success: true,
+        message: "پیامک ارسال شد",
+        otp_debug: otp, // ⚠️ فقط برای تست — بعداً حذف کن
+        smsResult: result
+      }),
+      { headers: { "Content-Type": "application/json" } }
+    );
 
   } catch (error) {
     console.error("SMS Error:", error);
 
-    return new Response(JSON.stringify({
-      success: false,
-      error: error.toString()
-    }), { status: 500 });
+    return new Response(
+      JSON.stringify({
+        success: false,
+        error: error.message
+      }),
+      { status: 500 }
+    );
   }
 }
