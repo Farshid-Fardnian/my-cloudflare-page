@@ -1,6 +1,6 @@
 export async function onRequestPost({ request, env }) {
   // === تنظیمات ===
-  const API_KEY = 'MY_SECRET_API_KEY';
+  const API_KEY = 'F@r50741367';
 
   // === بررسی API Key ===
   const headers = Object.fromEntries(request.headers.entries());
