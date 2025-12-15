@@ -178,12 +178,7 @@ document.getElementById("verifyOtpBtn")?.addEventListener("click", async ()=> {
 
     alert("🎉 ورود موفق");
 
-    // اگر JWT داری
-    if (data.token) {
-      localStorage.setItem("token", data.token);
-    }
-
-    window.location.href = "/";
+   
 
   } catch (err) {
     alert(err.message);
@@ -200,36 +195,11 @@ document.getElementById("verifyOtpBtn")?.addEventListener("click", async ()=> {
 /* ======================
    Web OTP API
 ====================== */
-function startWebOTP() {
-  const ac = new AbortController();
 
-  setTimeout(() => ac.abort(), 120000);
-
-  navigator.credentials.get({
-    otp: { transport: ["sms"] },
-    signal: ac.signal
-  })
-  .then(otp => {
-    if (otp && otp.code) {
-      document.getElementById("otpCode").value = otp.code;
-      setTimeout(verifyOtp, 500);
-    }
-  })
-  .catch(() => {});
-}
 
 /* ======================
    Events
 ====================== */
-document.addEventListener("DOMContentLoaded", () => {
- 
-
-  document.getElementById("otpCode")?.addEventListener("input", e => {
-    if ( e.target.value.length === 6) {
-      verifyOtp();
-    }
-  });
-});
 
 
 
