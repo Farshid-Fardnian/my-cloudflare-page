@@ -1,23 +1,19 @@
 export async function onRequestGet(context) {
   try {
-    const env = context.env;
+    const { env } = context;
 
-    // موبایل ثابت (فعلاً)
+    if (!env.ParsGreen_APIKey) {
+      throw new Error("ParsGreen_APIKey is not defined");
+    }
+
     const mobile = "09171835602";
-
-    // تولید OTP
     const otp = Math.floor(100000 + Math.random() * 900000).toString();
 
-    // ذخیره OTP در KV (۲ دقیقه)
-    await env.OTP.put(mobile, otp, {
-      expirationTtl: 120
-    });
-
-     const apiKey = context.env.ParsGreen_APIKey;
+    await env.OTP.put(mobile, otp, { expirationTtl: 120 });
 
     const payload = {
       SmsBody: `<#> کد تایید شما: ${otp}`,
-      Mobiles: ["09171835602"],
+      Mobiles: [mobile],
       SmsNumber: "00985000281156"
     };
 
@@ -28,7 +24,7 @@ export async function onRequestGet(context) {
         headers: {
           "Accept": "application/json",
           "Content-Type": "application/json",
-          "Authorization": "basic apikey:" + apiKey
+          "Authorization": `basic apikey:${env.ParsGreen_APIKey}`
         },
         body: JSON.stringify(payload)
       }
@@ -36,27 +32,19 @@ export async function onRequestGet(context) {
 
     const result = await response.json();
 
-    console.log("ParsGreen SMS Result:", result);
-
-    return new Response(
-      JSON.stringify({
-        success: true,
-        message: "پیامک ارسال شد",
-        otp_debug: otp, // ⚠️ فقط برای تست — بعداً حذف کن
-        smsResult: result
-      }),
-      { headers: { "Content-Type": "application/json" } }
-    );
+    return new Response(JSON.stringify({
+      success: true,
+      message: "پیامک ارسال شد",
+      otp_debug: otp, // فقط برای تست
+      smsResult: result
+    }), {
+      headers: { "Content-Type": "application/json" }
+    });
 
   } catch (error) {
-    console.error("SMS Error:", error);
-
-    return new Response(
-      JSON.stringify({
-        success: false,
-        error: error.message
-      }),
-      { status: 500 }
-    );
+    return new Response(JSON.stringify({
+      success: false,
+      error: error.message
+    }), { status: 500 });
   }
 }
