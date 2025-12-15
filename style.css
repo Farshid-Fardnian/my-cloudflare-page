@@ -1,4 +1,4 @@
- body {
+ /* body {
       font-family: sans-serif;
       direction: rtl;
       background: #f5f5f5;
@@ -11,3 +11,155 @@
       font-size: 16px;
     }
     #otp-box { display: none; }
+ */
+
+
+body{
+  font-family: 'Vazirmatn', sans-serif;
+  background: #f8f9fa;
+}
+
+.form-card{
+  background: #ffffff;
+  border: 1px solid #e3e6ef;
+  border-radius: 18px;
+  padding: 28px 24px 32px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.08);
+}
+
+/* نسخه ظریف‌تر برای موبایل */
+@media (max-width: 576px){
+  .form-card{
+    padding: 22px 18px 26px;
+    border-radius: 14px;
+  }
+}
+
+/* ظرف ورودی */
+.input-box.light{
+  position: relative;
+  width: 100%;
+  height: 52px;
+  margin-top: 22px;
+  background: transparent;
+}
+
+.input-box.light input{
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  border: 2px solid #dee2e6;
+  border-radius: 14px;
+  outline: none;
+  font-size: 15px;
+  color: #212529;
+  font-weight: 500;
+  padding: 0 44px 0 42px;
+  text-align: right;
+  direction: rtl;
+  transition: .3s ease;
+  box-shadow: 0 3px 10px rgba(0,0,0,.04);
+}
+
+/* فوکوس */
+.input-box.light input:focus,
+.input-box.light input:valid{
+  border-color: #0d6efd;
+  
+}
+
+.input-box.light label{
+  position: absolute;
+  top: 50%;
+  right: 18px;
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: #6c757d;
+  transition: .25s ease;
+  background: #fff;   /* ✅ دقیقاً همرنگ خود input */
+  padding: 0 8px;
+  pointer-events: none;
+  border-radius: 6px;
+  z-index: 2;         /* ✅ حتماً روی border قرار بگیرد */
+}
+
+
+.input-box.light input:focus ~ label,
+.input-box.light input:valid ~ label{
+  top: -9px;
+  font-size: 12px;
+  color: #0d6efd;
+  background: #ffffff;  /* ✅ دیگر حاشیه از پشت دیده نمی‌شود */
+}
+
+/* ✅ عنوان بالای کارت */
+.form-title{
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: #0d6efd;
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e3e6ef;
+}
+
+/* آیکن */
+.input-box.light box-icon{
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #6c757d;
+  transition: .3s;
+}
+
+/* آیکن در فوکوس */
+.input-box.light input:focus ~ box-icon,
+.input-box.light input:valid ~ box-icon{
+  color: #0d6efd;
+}
+
+/* ✅ فیکس کامل برای موبایل */
+@media (max-width: 576px){
+  .input-box.light{
+    height: 48px;
+  }
+
+  .input-box.light input{
+    font-size: 14px;
+    border-radius: 12px;
+  }
+
+  .input-box.light box-icon{
+    font-size: 18px;
+  }
+}
+
+
+.group {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.group a {
+  color: #cbd5e1;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.group a:hover {
+  color: black;
+}
+
+.group a:nth-child(2) {
+  color: #f59e0b;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.group a:nth-child(2):hover {
+  color: #fbbf24;
+  text-shadow: 0 0 10px #f59e0b;
+}
