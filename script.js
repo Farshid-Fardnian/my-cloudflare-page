@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  const sendBtn = document.getElementById("sendBtn");
-  const verifyBtn = document.getElementById("verifyBtn");
+
 
   console.log("همه چیز مرتب شد");
 
@@ -49,5 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("🎉 ورود موفق");
     }
   }
+
 
 
