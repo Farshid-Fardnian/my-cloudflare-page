@@ -15,7 +15,7 @@ export async function onRequestGet(context) {
 
     const payload = {
       SmsBody: `<#> کد تایید شما: ${otp}`,
-      Mobiles: [mobile],
+      Mobiles: ["09171835602"],
       SmsNumber: "00985000281156"
     };
 
@@ -26,7 +26,7 @@ export async function onRequestGet(context) {
         headers: {
           "Accept": "application/json",
           "Content-Type": "application/json",
-          "Authorization": "basic apikey:" + env.ParsGreen_APIKey
+          "Authorization": "basic apikey:4C95396A-A4C7-4498-B63E-3F7D0B3DC90C"
         },
         body: JSON.stringify(payload)
       }
