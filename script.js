@@ -91,8 +91,9 @@ function startCountdown(seconds) {
 /* ======================
    Send OTP
 ====================== */
-async function sendOtp() {
-  const mobileInput = document.getElementById("mobile");
+
+ document.getElementById("sendOtpBtn")?.addEventListener("click", async ()=> {
+     const mobileInput = document.getElementById("mobile");
   const validatedMobile = validateMobile(mobileInput.value);
 
   if (!validatedMobile) {
@@ -136,14 +137,18 @@ async function sendOtp() {
   } catch (err) {
     alert(err.message);
     mobileInput.disabled = false;
-  }
-}
+
+ }
+});
+
 
 /* ======================
    Verify OTP
 ====================== */
-async function verifyOtp() {
-  if (isVerifying) return;
+
+
+document.getElementById("verifyOtpBtn")?.addEventListener("click", async ()=> {
+        if (isVerifying) return;
 
   const otpInput = document.getElementById("otpCode");
   const otp = otpInput.value.trim();
@@ -187,7 +192,10 @@ async function verifyOtp() {
   } finally {
     isVerifying = false;
   }
-}
+
+
+});
+
 
 /* ======================
    Web OTP API
@@ -214,8 +222,7 @@ function startWebOTP() {
    Events
 ====================== */
 document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("sendOtpBtn")?.addEventListener("click", sendOtp);
-  document.getElementById("verifyOtpBtn")?.addEventListener("click", verifyOtp);
+ 
 
   document.getElementById("otpCode")?.addEventListener("input", e => {
     if (e.target.value.length === 4 || e.target.value.length === 6) {
@@ -223,6 +230,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
 
 
 
