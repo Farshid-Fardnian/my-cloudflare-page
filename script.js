@@ -153,7 +153,7 @@ document.getElementById("verifyOtpBtn")?.addEventListener("click", async ()=> {
   const otpInput = document.getElementById("otpCode");
   const otp = otpInput.value.trim();
 
-  if (otp.length !== 4 && otp.length !== 6) {
+  if (otp.length !== 6) {
     alert("کد OTP معتبر نیست");
     return;
   }
@@ -225,11 +225,12 @@ document.addEventListener("DOMContentLoaded", () => {
  
 
   document.getElementById("otpCode")?.addEventListener("input", e => {
-    if (e.target.value.length === 4 || e.target.value.length === 6) {
+    if ( e.target.value.length === 6) {
       verifyOtp();
     }
   });
 });
+
 
 
 
