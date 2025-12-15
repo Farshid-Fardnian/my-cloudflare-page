@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 document.getElementById("sendBtn").addEventListener("click", () => {
+  alert("دکمه کلیک شد!");
        const mobile = document.getElementById("mobile").value;
 
     const res = fetch("/send-otp", {
@@ -49,3 +50,4 @@ document.getElementById("verifyBtn").addEventListener("click", () => {
 });
 
  
+
