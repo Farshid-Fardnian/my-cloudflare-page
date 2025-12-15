@@ -1,4 +1,4 @@
-  export default {
+  export async function onRequestPost() {
   async fetch(request, env) {
     const  mobile = ["09171835602"];
 
@@ -50,7 +50,3 @@
     }
   }
 };
-
-
-  return new Response(JSON.stringify({ success: true }));
-}
