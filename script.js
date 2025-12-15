@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const sendBtn = document.getElementById("sendBtn");
   const verifyBtn = document.getElementById("verifyBtn");
 
-  console.log("همه چیز OK");
+  console.log("همه چیز OKfdsasd");
 
   sendBtn.addEventListener("click", sendOtp);
   verifyBtn.addEventListener("click", verifyOtp);
@@ -45,5 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+
 
 
