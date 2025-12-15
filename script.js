@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+  
 
   // ارسال OTP
   document.getElementById("sendOtp")?.addEventListener("click", async () => {
@@ -39,3 +40,4 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+
