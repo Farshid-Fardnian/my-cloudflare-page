@@ -1,16 +1,9 @@
 export async function onRequestPost(context) {
-  const { request, env } = context;
+  const { env } = context;
 
   try {
-    const body = await request.json();
-    const mobile = "09171835602"; // مثال: "09171835602"
-
-    if (!mobile) {
-      return new Response(JSON.stringify({
-        success: false,
-        message: "شماره موبایل ارسال نشده"
-      }), { status: 400 });
-    }
+    // موبایل دستی
+    const mobile = "09171835602";
 
     // تولید OTP
     const otp = Math.floor(100000 + Math.random() * 900000).toString();
@@ -41,14 +34,20 @@ export async function onRequestPost(context) {
 
     const result = await response.json();
 
+    // ✅ نمایش نتیجه در کنسول Cloudflare
+    console.log("ParsGreen SMS Result:", result);
+
     return new Response(JSON.stringify({
       success: true,
+      message: "پیامک ارسال شد",
       smsResult: result
     }), {
       headers: { 'Content-Type': 'application/json' }
     });
 
   } catch (error) {
+    console.error("SMS Error:", error);
+
     return new Response(JSON.stringify({
       success: false,
       error: error.toString()
