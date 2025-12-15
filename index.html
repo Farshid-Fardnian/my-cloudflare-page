@@ -9,12 +9,20 @@
 </head>
 <body>
 
-  <h1>سلام 👋</h1>
-  <p>این اولین صفحه من است</p>
+<h2>ورود با شماره موبایل</h2>
 
-  <button id="btn">کلیک کن</button>
+<div id="mobile-box">
+  <input id="mobile" placeholder="09xxxxxxxxx">
+  <button onclick="sendOtp()">ارسال کد</button>
+</div>
+
+<div id="otp-box">
+  <input id="otp" placeholder="کد تایید">
+  <button onclick="verifyOtp()">تایید</button>
+</div>
 
   <!-- اتصال JS -->
   <script src="script.js"></script>
 </body>
 </html>
+
