@@ -11,13 +11,13 @@ document.addEventListener("DOMContentLoaded", () => {
   function sendOtp() {
     const mobile = document.getElementById("mobile").value;
 
-    const res = await fetch("/send-otp", {
+    const res = fetch("/send-otp", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ mobile })
     });
 
-    const data = await res.json();
+    const data = res.json();
     alert(data.message);
 
     if (data.success) {
@@ -30,13 +30,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const mobile = document.getElementById("mobile").value;
     const otp = document.getElementById("otp").value;
 
-    const res = await fetch("/verify-otp", {
+    const res = fetch("/verify-otp", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ mobile, otp })
     });
 
-    const data = await res.json();
+    const data = res.json();
     alert(data.message);
 
     if (data.success) {
@@ -45,4 +45,5 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+
 
