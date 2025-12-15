@@ -1,4 +1,14 @@
+import { corsHeaders } from "./cors";
+
 export async function onRequestPost({ request, env }) {
+
+  const headers = corsHeaders(request);
+
+  // ✅ پاسخ به Preflight
+  if (request.method === "OPTIONS") {
+    return new Response(null, { headers });
+  }
+  
   try {
     const { mobile } = await request.json();
 
