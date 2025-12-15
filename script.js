@@ -131,9 +131,7 @@ function startCountdown(seconds) {
 
     startCountdown(120);
 
-    if ("OTPCredential" in window) {
-      startWebOTP();
-    }
+   
 
   } catch (err) {
     alert(err.message);
@@ -201,6 +199,7 @@ document.getElementById("verifyOtpBtn")?.addEventListener("click", async ()=> {
 /* ======================
    Events
 ====================== */
+
 
 
 
