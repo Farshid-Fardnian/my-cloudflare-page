@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // });
 
 
-async function sendOtp() {
+function sendOtp() {
   const mobile = document.getElementById("mobile").value;
 
   const res = await fetch("/send-otp", {
@@ -35,7 +35,7 @@ async function sendOtp() {
   }
 }
 
-async function verifyOtp() {
+function verifyOtp() {
   const mobile = document.getElementById("mobile").value;
   const otp = document.getElementById("otp").value;
 
@@ -53,6 +53,7 @@ async function verifyOtp() {
     // redirect or set cookie
   }
 }
+
 
 
 
