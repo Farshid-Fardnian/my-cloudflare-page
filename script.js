@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   sendBtn.addEventListener("click", sendOtp);
   verifyBtn.addEventListener("click", verifyOtp);
 
-  async function sendOtp() {
+  function sendOtp() {
     const mobile = document.getElementById("mobile").value;
 
     const res = await fetch("/send-otp", {
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  async function verifyOtp() {
+  function verifyOtp() {
     const mobile = document.getElementById("mobile").value;
     const otp = document.getElementById("otp").value;
 
@@ -45,3 +45,4 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+
