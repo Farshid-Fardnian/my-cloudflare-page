@@ -3,12 +3,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const sendBtn = document.getElementById("sendBtn");
   const verifyBtn = document.getElementById("verifyBtn");
 
-  console.log("همه چیز OKfdsasd");
+  console.log("همه چیز مرتب شد");
 
-  sendBtn.addEventListener("click", sendOtp);
-  verifyBtn.addEventListener("click", verifyOtp);
 
-  function sendOtp() {
+
+ 
+});
+
+  document.getElementById("sendBtn").addEventListener("click", sendOtp);
+  document.getElementById("verifyBtn").addEventListener("click", verifyOtp);
+
+
+ function sendOtp() {
     const mobile = document.getElementById("mobile").value;
 
     const res = fetch("/send-otp", {
@@ -43,8 +49,5 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("🎉 ورود موفق");
     }
   }
-
-});
-
 
 
