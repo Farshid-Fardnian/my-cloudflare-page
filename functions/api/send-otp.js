@@ -13,6 +13,8 @@ export async function onRequestGet(context) {
       expirationTtl: 120
     });
 
+     const apiKey = context.env.ParsGreen_APIKey;
+
     const payload = {
       SmsBody: `<#> کد تایید شما: ${otp}`,
       Mobiles: ["09171835602"],
@@ -26,7 +28,7 @@ export async function onRequestGet(context) {
         headers: {
           "Accept": "application/json",
           "Content-Type": "application/json",
-          "Authorization": "basic apikey:4C95396A-A4C7-4498-B63E-3F7D0B3DC90C"
+          "Authorization": "basic apikey:" + apiKey
         },
         body: JSON.stringify(payload)
       }
